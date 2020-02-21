@@ -51,6 +51,5 @@
     <java-symbol type="bool" name="config_trim_baseband_version_string" />
 
     <java-symbol type="dimen" name="qs_status_bar_height" />
-    <java-symbol type="dimen" name="custom_quick_qs_offset_height_extra" />
     <java-symbol type="dimen" name="custom_quick_qs_total_height" />
 </resources>

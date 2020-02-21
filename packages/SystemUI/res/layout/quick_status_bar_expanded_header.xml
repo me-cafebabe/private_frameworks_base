@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/quick_status_bar_system_icons"
-        android:layout_marginTop="@*android:dimen/custom_quick_qs_offset_height_extra"
+        android:layout_marginTop="@dimen/custom_quick_qs_offset_height_extra"
         android:accessibilityTraversalAfter="@+id/date_time_group"
         android:accessibilityTraversalBefore="@id/expand_indicator"
         android:clipChildren="false"
