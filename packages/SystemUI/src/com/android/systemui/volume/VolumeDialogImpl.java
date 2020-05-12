@@ -569,11 +569,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                 mDialogRowsView, false);
         row.view.setId(row.stream);
         row.view.setTag(row);
-        row.header = row.view.findViewById(R.id.volume_row_header);
-        row.header.setId(20 * row.stream);
-        if (stream == STREAM_ACCESSIBILITY) {
-            row.header.setFilters(new InputFilter[] {new InputFilter.LengthFilter(13)});
-        }
         row.dndIcon = row.view.findViewById(R.id.dnd_icon);
         row.slider = row.view.findViewById(R.id.volume_row_slider);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
@@ -1608,10 +1603,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                 row.slider.setProgress(newProgress, true);
             }
         }
-
-        // update header text
-        Util.setText(row.header, Utils.formatPercentage((enable && !row.ss.muted)
-                        ? vlevel : 0, row.ss.levelMax));
     }
 
     private void recheckH(VolumeRow row) {
@@ -1852,7 +1843,6 @@ public class VolumeDialogImpl implements VolumeDialog,
             }
             final int userLevel = getImpliedLevel(seekBar, progress);
 
-            Util.setText(mRow.header, Utils.formatPercentage(userLevel, mRow.ss.levelMax));
             if (mRow.ss.level != userLevel || mRow.ss.muted && userLevel > 0) {
                 mRow.userAttempt = SystemClock.uptimeMillis();
                 if (mRow.requestedLevel != userLevel) {
@@ -1916,7 +1906,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private static class VolumeRow {
         private View view;
-        private TextView header;
         private ImageView icon;
         private SeekBar slider;
         private int stream;

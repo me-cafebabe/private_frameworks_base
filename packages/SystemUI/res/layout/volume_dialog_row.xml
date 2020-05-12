@@ -60,21 +60,6 @@
                 android:scaleType="fitCenter"
                 android:soundEffectsEnabled="false"
                 android:tint="?android:attr/colorBackgroundFloating" />
-
-            <com.android.systemui.statusbar.AlphaOptimizedTextView
-                android:id="@+id/volume_row_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:ellipsize="end"
-                android:gravity="bottom|center_horizontal"
-                android:layoutDirection="ltr"
-                android:maxLength="10"
-                android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.Volume.Header"
-                android:textColor="?android:attr/colorAccent"
-                android:textStyle="bold" />
         </LinearLayout>
     </FrameLayout>
 
