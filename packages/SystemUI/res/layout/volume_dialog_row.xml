@@ -62,12 +62,4 @@
                 android:tint="?android:attr/colorBackgroundFloating" />
         </LinearLayout>
     </FrameLayout>
-
-    <include
-        layout="@layout/volume_dnd_icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="6dp" />
 </FrameLayout>

@@ -150,7 +150,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private CaptionsToggleImageButton mODICaptionsIcon;
     private View mExpandRowsView;
     private ExpandableIndicator mExpandRows;
-    private FrameLayout mZenIcon;
     private final List<VolumeRow> mRows = new ArrayList<>();
     private ConfigurableTexts mConfigurableTexts;
     private final SparseBooleanArray mDynamic = new SparseBooleanArray();
@@ -338,7 +337,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         mRinger = mDialog.findViewById(R.id.ringer);
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
-            mZenIcon = mRinger.findViewById(R.id.dnd_icon);
         }
 
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
@@ -564,7 +562,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                 mDialogRowsView, false);
         row.view.setId(row.stream);
         row.view.setTag(row);
-        row.dndIcon = row.view.findViewById(R.id.dnd_icon);
         row.slider = row.view.findViewById(R.id.volume_row_slider);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
 
@@ -1350,16 +1347,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     /**
-     * Toggles enable state of views in a VolumeRow (not including seekbar or icon)
-     * Hides/shows zen icon
-     * @param enable whether to enable volume row views and hide dnd icon
-     */
-    private void enableVolumeRowViewsH(VolumeRow row, boolean enable) {
-        boolean showDndIcon = !enable;
-        row.dndIcon.setVisibility(showDndIcon ? VISIBLE : GONE);
-    }
-
-    /**
      * Toggles enable state of footer/ringer views
      * Hides/shows zen icon
      * @param enable whether to enable ringer views and hide dnd icon
@@ -1367,9 +1354,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private void enableRingerViewsH(boolean enable) {
         if (mRingerIcon != null) {
             mRingerIcon.setEnabled(enable);
-        }
-        if (mZenIcon != null) {
-            mZenIcon.setVisibility(enable ? GONE : VISIBLE);
         }
     }
 
@@ -1524,7 +1508,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (zenMuted || routedToSubmixAndEarphone) {
             row.tracking = false;
         }
-        enableVolumeRowViewsH(row, !zenMuted);
 
         // update slider
         final boolean enableSlider = !zenMuted && !routedToSubmixAndEarphone;
@@ -1919,7 +1902,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         private ColorStateList cachedTint;
         private ObjectAnimator anim;  // slider progress animation for non-touch-related updates
         private int animTargetProgress;
-        private FrameLayout dndIcon;
     }
 
     private static class MediaOutputRow {

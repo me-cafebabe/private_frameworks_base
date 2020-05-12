@@ -49,16 +49,9 @@
                 style="@style/VolumeButtons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="17dp"
+                android:padding="@dimen/volume_dialog_panel_ringer_icon_padding"
+                android:background="@drawable/ripple_drawable_20dp"
                 android:tint="?android:attr/colorAccent" />
-
-            <include
-                layout="@layout/volume_dnd_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="6dp" />
         </FrameLayout>
     </LinearLayout>
 
@@ -66,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/volume_dialog_slider_height"
         android:layout_marginTop="@dimen/volume_dialog_spacer"
+        android:layout_marginBottom="@dimen/volume_dialog_spacer"
         android:clipChildren="false"
         android:clipToPadding="false">
 
@@ -158,8 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/volume_dialog_spacer"
             android:background="@drawable/rounded_volume_background"
-            android:elevation="@dimen/volume_dialog_elevation"
-            android:orientation="vertical">
+            android:elevation="@dimen/volume_dialog_elevation">
 
             <com.android.systemui.statusbar.phone.ExpandableIndicator
                 android:id="@+id/expandable_indicator"

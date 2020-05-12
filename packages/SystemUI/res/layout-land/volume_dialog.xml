@@ -52,33 +52,26 @@
                 style="@style/VolumeButtons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="@dimen/volume_dialog_panel_ringer_icon_padding"
+                android:background="@drawable/ripple_drawable_20dp"
                 android:tint="?android:attr/colorAccent" />
-
-            <include
-                layout="@layout/volume_dnd_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="6dp" />
         </FrameLayout>
 
         <LinearLayout
             android:id="@+id/expandable_indicator_container"
-            android:layout_width="@dimen/volume_dialog_panel_width"
-            android:layout_height="@dimen/volume_dialog_panel_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/volume_dialog_row_spacer"
             android:background="@drawable/rounded_volume_background"
             android:elevation="@dimen/volume_dialog_elevation"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:gravity="center_vertical">
 
             <com.android.systemui.statusbar.phone.ExpandableIndicator
                 android:id="@+id/expandable_indicator"
                 style="@style/VolumeButtons"
                 android:layout_width="@dimen/volume_dialog_panel_width"
                 android:layout_height="@dimen/volume_dialog_panel_width"
-                android:contentDescription="@string/accessibility_quick_settings_expand"
+                android:background="@drawable/ripple_drawable_20dp"
                 android:rotation="90" />
         </LinearLayout>
 
