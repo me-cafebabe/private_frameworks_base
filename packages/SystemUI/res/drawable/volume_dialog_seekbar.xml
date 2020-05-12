@@ -13,7 +13,7 @@
                         <gradient 
                             android:startColor="@*android:color/gradient_start"
                             android:endColor="@*android:color/gradient_end"
-                            android:angle="45"/>
+                            android:angle="180"/>
                     </shape>
                 </item>
             </selector>
