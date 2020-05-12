@@ -1547,7 +1547,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (isActive) {
             row.slider.requestFocus();
         }
-        boolean useActiveColoring = isActive && row.slider.isEnabled();
+        /*boolean useActiveColoring = isActive && row.slider.isEnabled();
         final ColorStateList tint = useActiveColoring
                 ? Utils.getColorAccent(mContext).withAlpha(mDarkMode ?
                         SLIDER_PROGRESS_ALPHA_ACTIVE_DARK : SLIDER_PROGRESS_ALPHA_ACTIVE)
@@ -1555,7 +1555,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                         SLIDER_PROGRESS_ALPHA_DARK : SLIDER_PROGRESS_ALPHA);
         if (tint == row.cachedTint) return;
         row.slider.setProgressTintList(tint);
-        row.cachedTint = tint;
+        row.cachedTint = tint;*/
     }
 
     private void updateVolumeRowSliderH(VolumeRow row, boolean enable, int vlevel) {

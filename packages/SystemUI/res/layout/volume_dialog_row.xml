@@ -59,7 +59,7 @@
                 android:layoutDirection="ltr"
                 android:scaleType="fitCenter"
                 android:soundEffectsEnabled="false"
-                android:tint="?android:attr/colorAccent" />
+                android:tint="?android:attr/colorBackgroundFloating" />
 
             <com.android.systemui.statusbar.AlphaOptimizedTextView
                 android:id="@+id/volume_row_header"
