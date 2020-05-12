@@ -77,7 +77,7 @@
                 android:id="@+id/expandable_indicator"
                 style="@style/VolumeButtons"
                 android:layout_width="@dimen/volume_dialog_panel_width"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/volume_dialog_panel_width"
                 android:contentDescription="@string/accessibility_quick_settings_expand"
                 android:rotation="90" />
         </LinearLayout>

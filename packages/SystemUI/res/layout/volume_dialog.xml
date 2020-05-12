@@ -165,7 +165,7 @@
                 android:id="@+id/expandable_indicator"
                 style="@style/VolumeButtons"
                 android:layout_width="@dimen/volume_dialog_panel_width"
-                android:layout_height="@dimen/volume_dialog_button_height"
+                android:layout_height="@dimen/volume_dialog_panel_width"
                 android:background="@drawable/ripple_drawable_20dp"
                 android:rotation="90" />
         </LinearLayout>
