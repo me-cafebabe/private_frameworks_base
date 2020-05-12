@@ -130,11 +130,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     static final int DIALOG_SHOW_ANIMATION_DURATION = 300;
     static final int DIALOG_HIDE_ANIMATION_DURATION = 250;
 
-    private static final int SLIDER_PROGRESS_ALPHA_ACTIVE = 100;
-    private static final int SLIDER_PROGRESS_ALPHA_ACTIVE_DARK = 60;
-    private static final int SLIDER_PROGRESS_ALPHA = 50;
-    private static final int SLIDER_PROGRESS_ALPHA_DARK = 40;
-
     private final Context mContext;
     private final H mHandler = new H();
     private final VolumeDialogController mController;
@@ -1542,15 +1537,19 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (isActive) {
             row.slider.requestFocus();
         }
-        /*boolean useActiveColoring = isActive && row.slider.isEnabled();
+        boolean useActiveColoring = isActive && row.slider.isEnabled();
         final ColorStateList tint = useActiveColoring
-                ? Utils.getColorAccent(mContext).withAlpha(mDarkMode ?
-                        SLIDER_PROGRESS_ALPHA_ACTIVE_DARK : SLIDER_PROGRESS_ALPHA_ACTIVE)
-                : Utils.getColorAccent(mContext).withAlpha(mDarkMode ?
-                        SLIDER_PROGRESS_ALPHA_DARK : SLIDER_PROGRESS_ALPHA);
+                ? null
+                : Utils.getColorAttr(mContext, android.R.attr.colorControlNormal)
+                .withAlpha(getAlphaAttr(android.R.attr.disabledAlpha));
         if (tint == row.cachedTint) return;
+        final ColorStateList backgroundTint = useActiveColoring
+                ? Utils.getColorAccent(mContext)
+                : Utils.getColorAttr(mContext, android.R.attr.colorControlNormal)
+                .withAlpha(getAlphaAttr(android.R.attr.disabledAlpha));
         row.slider.setProgressTintList(tint);
-        row.cachedTint = tint;*/
+        row.slider.setProgressBackgroundTintList(backgroundTint);
+        row.cachedTint = tint;
     }
 
     private void updateVolumeRowSliderH(VolumeRow row, boolean enable, int vlevel) {
