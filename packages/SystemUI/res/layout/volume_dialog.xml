@@ -67,6 +67,7 @@
             android:id="@+id/volume_dialog_rows"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_volume_background"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:gravity="center"
