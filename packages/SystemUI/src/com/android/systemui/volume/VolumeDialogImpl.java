@@ -419,8 +419,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (D.BUG) Slog.d(TAG, "Adding row for stream " + stream);
         VolumeRow row = new VolumeRow();
         initRow(row, stream, iconRes, iconMuteRes, important, defaultStream);
-        mDialogRowsView.addView(row.view, 0);
-        mRows.add(row);
+        mDialogRowsView.addView(row.view);
+        mRows.add(0, row);
     }
 
     private void addExistingRows() {
@@ -435,7 +435,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private void cleanExpandedRows() {
         VolumeRow ring = findRow(STREAM_RING);
         VolumeRow alarm = findRow(STREAM_ALARM);
-        VolumeRow media = findRow(STREAM_MUSIC);
         VolumeRow active = getActiveRow();
 
         float width = mContext.getResources().getDimension(
@@ -466,10 +465,6 @@ public class VolumeDialogImpl implements VolumeDialog,
             final boolean isRingVisible = active == ring;
             animateViewOut(ring.view, isRingVisible, width, z);
             z /= 2;
-            width = isRingVisible ? width : width * 2;
-        }
-        if (media != null) {
-            animateViewOut(media.view, true, width, z);
         }
         if (mShowingMediaDevices) {
             mDialogRowsView.setAlpha(1f);
@@ -606,7 +601,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                 if (!mExpanded) {
                     VolumeRow ring = findRow(STREAM_RING);
                     VolumeRow alarm = findRow(STREAM_ALARM);
-                    VolumeRow media = findRow(STREAM_MUSIC);
                     VolumeRow active = getActiveRow();
 
                     float width = mContext.getResources().getDimension(
@@ -641,10 +635,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                         final boolean isRingVisible = active == ring;
                         animateViewIn(ring.view, isRingVisible, width, z);
                         z /= 2;
-                        width = isRingVisible ? width : width * 2;
-                    }
-                    if (media != null) {
-                        animateViewIn(media.view, true, width, z);
                     }
 
                     provideTouchHapticH(VibrationEffect.get(VibrationEffect.EFFECT_TICK));
