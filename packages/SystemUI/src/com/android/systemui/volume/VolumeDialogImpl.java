@@ -318,6 +318,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
         mRinger = mDialog.findViewById(R.id.ringer);
 
+        LayoutTransition lt = new LayoutTransition();
+        lt.disableTransitionType(LayoutTransition.DISAPPEARING);
+        lt.disableTransitionType(LayoutTransition.APPEARING);
+        mDialogRowsView.setLayoutTransition(lt);
+
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
         }
@@ -435,9 +440,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void cleanExpandedRows() {
-        LayoutTransition lt = new LayoutTransition();
-        lt.disableTransitionType(LayoutTransition.DISAPPEARING);
-        mDialogRowsView.setLayoutTransition(lt);
 
         VolumeRow ring = findRow(STREAM_RING);
         VolumeRow alarm = findRow(STREAM_ALARM);
@@ -597,10 +599,6 @@ public class VolumeDialogImpl implements VolumeDialog,
             });
             mExpandRows.setOnClickListener(v -> {
                 if (!mExpanded) {
-
-                    LayoutTransition lt = new LayoutTransition();
-                    lt.disableTransitionType(LayoutTransition.APPEARING);
-                    mDialogRowsView.setLayoutTransition(lt);
 
                     VolumeRow ring = findRow(STREAM_RING);
                     VolumeRow alarm = findRow(STREAM_ALARM);
