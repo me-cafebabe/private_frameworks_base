@@ -34,6 +34,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static com.android.systemui.volume.Events.DISMISS_REASON_SETTINGS_CLICKED;
 
 import android.animation.Animator;
+import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -316,6 +317,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
         mRinger = mDialog.findViewById(R.id.ringer);
+
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
         }
@@ -433,6 +435,10 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void cleanExpandedRows() {
+        LayoutTransition lt = new LayoutTransition();
+        lt.disableTransitionType(LayoutTransition.DISAPPEARING);
+        mDialogRowsView.setLayoutTransition(lt);
+
         VolumeRow ring = findRow(STREAM_RING);
         VolumeRow alarm = findRow(STREAM_ALARM);
         VolumeRow active = getActiveRow();
@@ -591,6 +597,11 @@ public class VolumeDialogImpl implements VolumeDialog,
             });
             mExpandRows.setOnClickListener(v -> {
                 if (!mExpanded) {
+
+                    LayoutTransition lt = new LayoutTransition();
+                    lt.disableTransitionType(LayoutTransition.CHANGE_APPEARING);
+                    mDialogRowsView.setLayoutTransition(lt);
+
                     VolumeRow ring = findRow(STREAM_RING);
                     VolumeRow alarm = findRow(STREAM_ALARM);
                     VolumeRow active = getActiveRow();
