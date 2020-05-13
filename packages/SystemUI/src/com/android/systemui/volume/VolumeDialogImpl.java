@@ -461,15 +461,15 @@ public class VolumeDialogImpl implements VolumeDialog,
             hideCaptionsTooltip();
         }
 
-        if (alarm != null) {
-            final boolean isAlarmVisible = active == alarm;
-            animateViewOut(alarm.view, isAlarmVisible, 0, z);
-            z /= 2;
-            width = isAlarmVisible ? width / 2 : width;
-        }
         if (ring != null) {
             final boolean isRingVisible = active == ring;
             animateViewOut(ring.view, isRingVisible, width, z);
+            z /= 2;
+            width = isRingVisible ? width/2 : width;
+        }
+        if (alarm != null) {
+            final boolean isAlarmVisible = active == alarm;
+            animateViewOut(alarm.view, isAlarmVisible, width, z);
             z /= 2;
         }
         if (mShowingMediaDevices) {
@@ -599,7 +599,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 if (!mExpanded) {
 
                     LayoutTransition lt = new LayoutTransition();
-                    lt.disableTransitionType(LayoutTransition.CHANGE_APPEARING);
+                    lt.disableTransitionType(LayoutTransition.APPEARING);
                     mDialogRowsView.setLayoutTransition(lt);
 
                     VolumeRow ring = findRow(STREAM_RING);
@@ -628,15 +628,15 @@ public class VolumeDialogImpl implements VolumeDialog,
                         }
                     }
 
-                    if (alarm != null) {
-                        final boolean isAlarmVisible = active == alarm;
-                        animateViewIn(alarm.view, isAlarmVisible, 0, z);
-                        z /= 2;
-                        width = isAlarmVisible ? width/2 : width;
-                    }
                     if (ring != null) {
                         final boolean isRingVisible = active == ring;
                         animateViewIn(ring.view, isRingVisible, width, z);
+                        z /= 2;
+                        width = isRingVisible ? width/2 : width;
+                    }
+                    if (alarm != null) {
+                        final boolean isAlarmVisible = active == alarm;
+                        animateViewIn(alarm.view, isAlarmVisible, 0, z);
                         z /= 2;
                     }
 
