@@ -181,7 +181,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private boolean mLeftVolumeRocker;
 
-    private boolean mDarkMode;
     private boolean mVibrateOnSlider;
 
     private boolean mExpanded;
@@ -209,8 +208,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         mElevation = mContext.getResources().getDimension(R.dimen.volume_dialog_elevation);
         mSpacer = mContext.getResources().getDimension(R.dimen.volume_dialog_row_spacer);
 
-        setDarkMode();
-
         mHandler.postDelayed(() -> {
             if (mLocalMediaManager == null) {
                 mLocalMediaManager = new LocalMediaManager(mContext, TAG, null);
@@ -223,22 +220,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     public void onUiModeChanged() {
         mContext.getTheme().applyStyle(mContext.getThemeResId(), true);
         removeAllMediaOutputRows();
-        setDarkMode();
-    }
-
-    private void setDarkMode() {
-        final int nightModeFlags = mContext.getResources().getConfiguration().uiMode &
-                Configuration.UI_MODE_NIGHT_MASK;
-
-        switch (nightModeFlags) {
-            case Configuration.UI_MODE_NIGHT_YES:
-                mDarkMode = true;
-                break;
-            case Configuration.UI_MODE_NIGHT_NO:
-            case Configuration.UI_MODE_NIGHT_UNDEFINED:
-                mDarkMode = false;
-                break;
-        }
     }
 
     public void init(int windowType, Callback callback) {
