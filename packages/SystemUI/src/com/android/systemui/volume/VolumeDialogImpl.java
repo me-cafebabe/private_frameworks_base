@@ -589,14 +589,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
                 provideTouchHapticH(VibrationEffect.get(VibrationEffect.EFFECT_TICK));
             });
-            mExpandRows.setOnLongClickListener(v -> {
-                Events.writeEvent(mContext, Events.EVENT_SETTINGS_CLICK);
-                Intent intent = new Intent(Settings.Panel.ACTION_VOLUME);
-                dismissH(DISMISS_REASON_SETTINGS_CLICKED);
-                Dependency.get(ActivityStarter.class).startActivity(intent,
-                        true /* dismissShade */);
-                return true;
-            });
             mExpandRows.setOnClickListener(v -> {
                 if (!mExpanded) {
                     VolumeRow ring = findRow(STREAM_RING);
