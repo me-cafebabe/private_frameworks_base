@@ -145,6 +145,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ViewGroup mMediaOutputScrollView;
     private TextView mMediaTitleText;
     private ImageButton mMediaButton;
+    private ImageButton mSettingsButton;
     private ImageButton mRingerIcon;
     private ViewGroup mODICaptionsView;
     private CaptionsToggleImageButton mODICaptionsIcon;
@@ -346,6 +347,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mMediaOutputView = mDialog.findViewById(R.id.media_output_container);
         mMediaOutputScrollView = mDialog.findViewById(R.id.media_output_scroller);
         mMediaButton = mDialog.findViewById(R.id.media_button);
+        mSettingsButton = mDialog.findViewById(R.id.settings_button);
         mMediaTitleText = mDialog.findViewById(R.id.media_output_title);
 
         if (mRows.isEmpty()) {
@@ -463,6 +465,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             animateViewOut(alarm.view, isAlarmVisible, width, z);
             z /= 2;
         }
+        animateViewOut(mSettingsButton, false, width, z);
         if (mShowingMediaDevices) {
             mDialogRowsView.setAlpha(1f);
             final ColorStateList tint = Utils.getColorAttr(mContext,
@@ -547,6 +550,13 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     public void initSettingsH() {
+        mSettingsButton.setOnClickListener(v -> {
+            Events.writeEvent(mContext, Events.EVENT_SETTINGS_CLICK);
+            Intent intent = new Intent(Settings.ACTION_SOUND_SETTINGS);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            dismissH(DISMISS_REASON_SETTINGS_CLICKED);
+            Dependency.get(ActivityStarter.class).startActivity(intent, true /* dismissShade */);
+        });
         if (mExpandRows != null) {
             mExpandRows.setVisibility(
                     mDeviceProvisionedController.isCurrentUserSetup() &&
@@ -624,6 +634,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                         animateViewIn(alarm.view, isAlarmVisible, 0, z);
                         z /= 2;
                     }
+                    animateViewIn(mSettingsButton, false, 0, z);
 
                     provideTouchHapticH(VibrationEffect.get(VibrationEffect.EFFECT_TICK));
                     mExpanded = true;

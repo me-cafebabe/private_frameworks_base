@@ -156,6 +156,17 @@
                 android:src="@drawable/ic_speaker_bluetooth"
                 android:visibility="gone" />
 
+            <com.android.keyguard.AlphaOptimizedImageButton
+                android:id="@+id/settings_button"
+                style="@style/VolumeButtons"
+                android:layout_width="@dimen/volume_dialog_panel_row_width"
+                android:layout_height="@dimen/volume_dialog_panel_row_width"
+                android:layout_margin="@dimen/volume_dialog_panel_row_padding"
+                android:src="@drawable/ic_settings_16dp"
+                android:contentDescription="@string/accessibility_volume_settings"
+                android:tint="?android:attr/colorAccent"
+                android:visibility="gone" />
+
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
