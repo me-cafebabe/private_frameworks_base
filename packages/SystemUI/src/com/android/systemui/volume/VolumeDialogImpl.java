@@ -283,10 +283,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
         mDialog.setOnShowListener(dialog -> {
-            if (!isLandscape()) {
-                mDialogView.setTranslationX(
-                        (mDialogView.getWidth() / 2.0f) * (!isAudioPanelOnLeftSide() ? 1 : -1));
-            }
+            mDialogView.setTranslationX(
+                    (mDialogView.getWidth() / 2.0f) * (!isAudioPanelOnLeftSide() ? 1 : -1));
             mDialogView.setAlpha(0);
             mDialogView.animate()
                     .alpha(1)
@@ -393,11 +391,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         float alpha = ta.getFloat(0, 0);
         ta.recycle();
         return (int) (alpha * 255);
-    }
-
-    private boolean isLandscape() {
-        return mContext.getResources().getConfiguration().orientation ==
-                Configuration.ORIENTATION_LANDSCAPE;
     }
 
     public void setStreamImportant(int stream, boolean important) {
@@ -571,11 +564,8 @@ public class VolumeDialogImpl implements VolumeDialog,
                     mHeight = (float) activeRow.view.getHeight();
                     mWidth = (float) activeRow.view.getWidth();
                 }
-                int x = (int) (isLandscape() ? (isAudioPanelOnLeftSide() ? (
-                        ((mWidth + mSpacer) * 2) + mWidth / 2)
-                        : (mWidth / 2))
-                        : (1.5 * mWidth + mSpacer));
-                int endRadius = (int) Math.hypot((isLandscape() ? 2.2 : 1.1) * (1.5 * mWidth +
+                int x = (int) ((1.5 * mWidth + mSpacer));
+                int endRadius = (int) Math.hypot(1.1 * (1.5 * mWidth +
                         mSpacer), mHeight);
                 if (mShowingMediaDevices) {
                     mShowingMediaDevices = false;
@@ -655,7 +645,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (view == null) return null;
 
         Animator anim = ViewAnimationUtils.createCircularReveal(view, x,
-            isLandscape() ? 0 : (int) mHeight, 0, endRadius);
+                (int) mHeight, 0, endRadius);
 
         anim.setDuration(DIALOG_SHOW_ANIMATION_DURATION);
         anim.setInterpolator(new SystemUIInterpolators.LogDecelerateInterpolator());
@@ -696,7 +686,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (view == null) return null;
 
         Animator anim = ViewAnimationUtils.createCircularReveal(view, x,
-            isLandscape() ? 0 : (int) mHeight, endRadius, 0);
+                (int) mHeight, endRadius, 0);
 
         anim.setDuration(DIALOG_SHOW_ANIMATION_DURATION);
         anim.setInterpolator(new SystemUIInterpolators.LogDecelerateInterpolator());
@@ -1176,10 +1166,8 @@ public class VolumeDialogImpl implements VolumeDialog,
                     cleanExpandedRows();
                     mExpandRows.setExpanded(mExpanded);
                 }, 50));
-        if (!isLandscape()) {
-            animator.translationX(
-                    (mDialogView.getWidth() / 2.0f) * (!isAudioPanelOnLeftSide() ? 1 : -1));
-        }
+        animator.translationX(
+                (mDialogView.getWidth() / 2.0f) * (!isAudioPanelOnLeftSide() ? 1 : -1));
         animator.start();
         checkODICaptionsTooltip(true);
         mController.notifyVisible(false);
