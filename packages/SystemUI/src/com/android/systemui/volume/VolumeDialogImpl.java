@@ -149,7 +149,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ImageButton mRingerIcon;
     private ViewGroup mODICaptionsView;
     private CaptionsToggleImageButton mODICaptionsIcon;
-    private View mExpandRowsView;
     private ExpandableIndicator mExpandRows;
     private final List<VolumeRow> mRows = new ArrayList<>();
     private ConfigurableTexts mConfigurableTexts;
@@ -342,8 +341,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         }
 
-        mExpandRowsView = mDialog.findViewById(R.id.expandable_indicator_container);
-        mExpandRows = mExpandRowsView.findViewById(R.id.expandable_indicator);
+        mExpandRows = mDialogView.findViewById(R.id.expandable_indicator);
         mExpandRows.setScaleY(isAudioPanelOnLeftSide() ? -1f : 1f);
 
         mMediaOutputView = mDialog.findViewById(R.id.media_output_container);
@@ -551,8 +549,8 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     public void initSettingsH() {
-        if (mExpandRowsView != null) {
-            mExpandRowsView.setVisibility(
+        if (mExpandRows != null) {
+            mExpandRows.setVisibility(
                     mDeviceProvisionedController.isCurrentUserSetup() &&
                             mActivityManager.getLockTaskModeState() == LOCK_TASK_MODE_NONE ?
                             VISIBLE : GONE);

@@ -47,88 +47,112 @@
                 android:tint="?android:attr/colorAccent" />
         </FrameLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/volume_dialog_slider_height"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/volume_dialog_spacer"
         android:layout_marginBottom="@dimen/volume_dialog_spacer"
         android:background="@drawable/rounded_volume_background"
         android:elevation="@dimen/volume_dialog_elevation"
-        android:clipChildren="false"
-        android:clipToPadding="false">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/volume_dialog_rows"
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:minWidth="@dimen/volume_dialog_panel_width"
-            android:orientation="horizontal">
-            <!-- volume rows added and removed here! :-) -->
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/media_output_scroller"
-            android:layout_width="182dp"
-            android:layout_height="match_parent"
-            android:clickable="false"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <com.android.systemui.statusbar.AlphaOptimizedTextView
-                android:id="@+id/media_output_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:clickable="false"
-                android:ellipsize="marquee"
-                android:focusable="true"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:paddingBottom="5dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="6dp"
-                android:paddingTop="5dp"
-                android:singleLine="true"
-                android:text="@string/media_output_title"
-                android:textColor="?android:attr/colorControlNormal"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/divider_stroke_color" />
+            android:layout_height="@dimen/volume_dialog_slider_height"
+            android:background="@android:color/transparent">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:id="@+id/volume_dialog_rows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/volume_dialog_panel_width"
                 android:orientation="horizontal">
+                <!-- volume rows added and removed here! :-) -->
+            </LinearLayout>
 
-                <ScrollView
+            <LinearLayout
+                android:id="@+id/media_output_scroller"
+                android:layout_width="182dp"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.android.systemui.statusbar.AlphaOptimizedTextView
+                    android:id="@+id/media_output_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fillViewport="true"
-                    android:scrollbars="none">
+                    android:layout_gravity="end"
+                    android:clickable="false"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="5dp"
+                    android:singleLine="true"
+                    android:text="@string/media_output_title"
+                    android:textColor="?android:attr/colorControlNormal"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:id="@+id/media_output_container"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/divider_stroke_color" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="top"
-                        android:gravity="top"
-                        android:layoutDirection="rtl"
-                        android:orientation="vertical">
-                        <!-- media output devices added and removed here -->
-                    </LinearLayout>
-                </ScrollView>
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/media_output_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="top"
+                            android:gravity="top"
+                            android:layoutDirection="rtl"
+                            android:orientation="vertical">
+                            <!-- media output devices added and removed here -->
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
             </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/volume_buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.android.systemui.statusbar.phone.ExpandableIndicator
+                android:id="@+id/expandable_indicator"
+                style="@style/VolumeButtons"
+                android:layout_width="@dimen/volume_dialog_panel_row_width"
+                android:layout_height="@dimen/volume_dialog_panel_row_width"
+                android:layout_margin="@dimen/volume_dialog_panel_row_padding"
+                android:background="@drawable/volume_expand_indicator_bg"
+                android:rotation="90"
+                android:tint="?android:attr/colorAccent" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/> 
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -137,22 +161,6 @@
         android:layout_marginTop="@dimen/volume_dialog_spacer"
         android:minWidth="@dimen/volume_dialog_panel_width"
         android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/expandable_indicator_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/volume_dialog_spacer"
-            android:background="@drawable/rounded_volume_background"
-            android:elevation="@dimen/volume_dialog_elevation">
-
-            <com.android.systemui.statusbar.phone.ExpandableIndicator
-                android:id="@+id/expandable_indicator"
-                style="@style/VolumeButtons"
-                android:layout_width="@dimen/volume_dialog_panel_width"
-                android:layout_height="@dimen/volume_dialog_panel_width"
-                android:rotation="90" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/media_button_view"
