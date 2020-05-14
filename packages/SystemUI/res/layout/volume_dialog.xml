@@ -154,6 +154,7 @@
                 android:layout_height="@dimen/volume_dialog_panel_row_width"
                 android:layout_margin="@dimen/volume_dialog_panel_row_padding"
                 android:src="@drawable/ic_speaker_bluetooth"
+                android:tint="?android:attr/colorAccent"
                 android:visibility="gone" />
 
             <com.android.keyguard.AlphaOptimizedImageButton

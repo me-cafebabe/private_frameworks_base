@@ -470,7 +470,6 @@ public class VolumeDialogImpl implements VolumeDialog,
             mDialogRowsView.setAlpha(1f);
             final ColorStateList tint = Utils.getColorAttr(mContext,
                 android.R.attr.colorControlNormal);
-            mMediaButton.setImageTintList(tint);
             mMediaTitleText.setSelected(false);
             mShowingMediaDevices = false;
             if (mExpanded) {
@@ -590,8 +589,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                 final ColorStateList tint = mShowingMediaDevices
                     ? Utils.getColorAccent(mContext)
                     : Utils.getColorAttr(mContext, android.R.attr.colorControlNormal);
-                mMediaButton.setImageTintList(tint);
-
                 provideTouchHapticH(VibrationEffect.get(VibrationEffect.EFFECT_TICK));
             });
             mExpandRows.setOnClickListener(v -> {
