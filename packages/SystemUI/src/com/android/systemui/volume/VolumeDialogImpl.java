@@ -143,7 +143,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ViewGroup mRinger;
     private ViewGroup mMediaOutputView;
     private ViewGroup mMediaOutputScrollView;
-    private ViewGroup mMediaButtonView;
     private TextView mMediaTitleText;
     private ImageButton mMediaButton;
     private ImageButton mRingerIcon;
@@ -346,7 +345,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         mMediaOutputView = mDialog.findViewById(R.id.media_output_container);
         mMediaOutputScrollView = mDialog.findViewById(R.id.media_output_scroller);
-        mMediaButtonView = mDialog.findViewById(R.id.media_button_view);
         mMediaButton = mDialog.findViewById(R.id.media_button);
         mMediaTitleText = mDialog.findViewById(R.id.media_output_title);
 
@@ -440,14 +438,14 @@ public class VolumeDialogImpl implements VolumeDialog,
                 R.dimen.volume_dialog_panel_width) + mSpacer;
         float z = mElevation;
 
-        boolean isMediaButtonVisible = mMediaButtonView.getVisibility() == VISIBLE;
+        boolean isMediaButtonVisible = mMediaButton.getVisibility() == VISIBLE;
 
         if (isMediaButtonVisible && !mODIServiceComponentEnabled) {
-            animateViewOut(mMediaButtonView, false, width, z);
+            animateViewOut(mMediaButton, false, width, z);
         } else if (mODIServiceComponentEnabled) {
             float widthMedia = width;
             if (isMediaButtonVisible) {
-                animateViewOut(mMediaButtonView, false, widthMedia, z/2);
+                animateViewOut(mMediaButton, false, widthMedia, z/2);
                 widthMedia += widthMedia;
             }
             animateViewOut(mODICaptionsView, false, widthMedia, z);
@@ -601,11 +599,11 @@ public class VolumeDialogImpl implements VolumeDialog,
                             mMediaOutputView.getChildCount() > 0;
 
                     if (showMediaOutput && !mODIServiceComponentEnabled) {
-                        animateViewIn(mMediaButtonView, false, width, z);
+                        animateViewIn(mMediaButton, false, width, z);
                     } else if (mODIServiceComponentEnabled) {
                         float widthMedia = width;
                         if (showMediaOutput) {
-                            animateViewIn(mMediaButtonView, false, widthMedia, z / 2);
+                            animateViewIn(mMediaButton, false, widthMedia, z / 2);
                             widthMedia += widthMedia;
                         }
                         animateViewIn(mODICaptionsView, false, widthMedia, z);
