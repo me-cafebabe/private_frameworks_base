@@ -547,6 +547,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         row.view.setId(row.stream);
         row.view.setTag(row);
         row.slider = row.view.findViewById(R.id.volume_row_slider);
+        row.slider.setClipToOutline(true);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
 
         row.anim = null;

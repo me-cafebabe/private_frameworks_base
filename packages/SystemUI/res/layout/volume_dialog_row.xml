@@ -23,10 +23,9 @@
         <SeekBar
             android:id="@+id/volume_row_slider"
             android:layout_width="@dimen/volume_dialog_slider_height"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/volume_dialog_panel_width"
             android:layout_gravity="center"
-            android:background="@null"
-            android:clickable="true"
+            android:background="@drawable/volume_dialog_row_bg"
             android:layoutDirection="rtl"
             android:paddingBottom="0dp"
             android:paddingEnd="@dimen/volume_dialog_panel_row_padding"
