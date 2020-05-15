@@ -456,14 +456,17 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         if (ring != null) {
             final boolean isRingVisible = active == ring;
-            animateViewOut(ring.view, isRingVisible, width, z);
-            z /= 2;
-            width = isRingVisible ? width/2 : width;
+            if (!isRingVisible) {
+                animateViewOut(ring.view, isRingVisible, width, z);
+                z /= 2;
+                width = width * 2;
+            }
         }
         if (alarm != null) {
             final boolean isAlarmVisible = active == alarm;
-            animateViewOut(alarm.view, isAlarmVisible, width, z);
-            z /= 2;
+            if (!isAlarmVisible) {
+                animateViewOut(alarm.view, isAlarmVisible, width, z);
+            }
         }
         animateViewOut(mSettingsButton, false, width, z);
         if (mShowingMediaDevices) {
@@ -622,14 +625,17 @@ public class VolumeDialogImpl implements VolumeDialog,
 
                     if (ring != null) {
                         final boolean isRingVisible = active == ring;
-                        animateViewIn(ring.view, isRingVisible, width, z);
-                        z /= 2;
-                        width = isRingVisible ? width/2 : width;
+                        if (!isRingVisible) {
+                            animateViewIn(ring.view, isRingVisible, width, z);
+                            z /= 2;
+                            width = width * 2;
+                        }
                     }
                     if (alarm != null) {
                         final boolean isAlarmVisible = active == alarm;
-                        animateViewIn(alarm.view, isAlarmVisible, 0, z);
-                        z /= 2;
+                        if (!isAlarmVisible) {
+                            animateViewIn(alarm.view, isAlarmVisible, width, z);
+                        }
                     }
                     animateViewIn(mSettingsButton, false, 0, z);
 
