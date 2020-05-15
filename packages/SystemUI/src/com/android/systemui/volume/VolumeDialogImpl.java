@@ -332,13 +332,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
             mDialogView.removeView(mODICaptionsTooltipViewStub);
             mODICaptionsTooltipViewStub = null;
-        }else if (mODICaptionsTooltipViewStub != null){
-            if(!isAudioPanelOnLeftSide()) {
-                mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.RIGHT);
-            } else {
-                mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.LEFT);
-            }
-
         }
 
         mExpandRows = mDialogView.findViewById(R.id.expandable_indicator);
