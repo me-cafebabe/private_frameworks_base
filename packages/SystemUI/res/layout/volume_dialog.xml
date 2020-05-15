@@ -85,14 +85,10 @@
                 android:inflatedId="@+id/odi_captions_tooltip_view"
                 android:layout="@layout/volume_tool_tip_view" />
         </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/> 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/volume_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/volume_dialog_spacer"
@@ -178,9 +174,10 @@
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/volume_buttons_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:gravity="start">
 
             <com.android.systemui.statusbar.phone.ExpandableIndicator
                 android:id="@+id/expandable_indicator"
@@ -212,11 +209,6 @@
                 android:contentDescription="@string/accessibility_volume_settings"
                 android:tint="?android:attr/colorAccent"
                 android:visibility="gone" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/> 
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

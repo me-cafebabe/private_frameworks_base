@@ -312,6 +312,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             return true;
         });
 
+        mDialog.findViewById(R.id.volume_container).setClipToOutline(true);
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
         mRinger = mDialog.findViewById(R.id.ringer);
 
@@ -464,8 +465,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         animateViewOut(mSettingsButton, false, width, z);
         if (mShowingMediaDevices) {
             mDialogRowsView.setAlpha(1f);
-            final ColorStateList tint = Utils.getColorAttr(mContext,
-                android.R.attr.colorControlNormal);
             mMediaTitleText.setSelected(false);
             mShowingMediaDevices = false;
             if (mExpanded) {
@@ -582,9 +581,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                     mCurrAnimator = circularReveal(mMediaOutputScrollView, x, endRadius);
                 }
                 mCurrAnimator.start();
-                final ColorStateList tint = mShowingMediaDevices
-                    ? Utils.getColorAccent(mContext)
-                    : Utils.getColorAttr(mContext, android.R.attr.colorControlNormal);
                 provideTouchHapticH(VibrationEffect.get(VibrationEffect.EFFECT_TICK));
             });
             mExpandRows.setOnClickListener(v -> {
