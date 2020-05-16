@@ -50,8 +50,7 @@
                 style="@style/VolumeButtons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/volume_dialog_panel_ringer_icon_padding"
-                android:tint="?android:attr/colorAccent" />
+                android:padding="@dimen/volume_dialog_panel_ringer_icon_padding" />
         </FrameLayout>
 
         <LinearLayout
@@ -186,8 +185,7 @@
                 android:layout_height="@dimen/volume_dialog_panel_row_width"
                 android:layout_margin="@dimen/volume_dialog_panel_row_padding"
                 android:background="@drawable/volume_expand_indicator_bg"
-                android:rotation="90"
-                android:tint="?android:attr/colorAccent" />
+                android:rotation="90" />
 
             <com.android.keyguard.AlphaOptimizedImageButton
                 android:id="@+id/media_button"
@@ -196,7 +194,6 @@
                 android:layout_height="@dimen/volume_dialog_panel_row_width"
                 android:layout_margin="@dimen/volume_dialog_panel_row_padding"
                 android:src="@drawable/ic_speaker_bluetooth"
-                android:tint="?android:attr/colorAccent"
                 android:visibility="gone" />
 
             <com.android.keyguard.AlphaOptimizedImageButton
@@ -207,7 +204,6 @@
                 android:layout_margin="@dimen/volume_dialog_panel_row_padding"
                 android:src="@drawable/ic_settings_16dp"
                 android:contentDescription="@string/accessibility_volume_settings"
-                android:tint="?android:attr/colorAccent"
                 android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
