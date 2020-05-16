@@ -24,10 +24,8 @@
     android:gravity="start"
     android:minWidth="@dimen/volume_dialog_panel_width"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
     android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_left_right"
     android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_left_right"
-    android:paddingTop="@dimen/volume_dialog_panel_transparent_padding"
     android:theme="@style/qs_theme">
 
     <LinearLayout
@@ -91,7 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/volume_dialog_spacer"
-        android:layout_marginBottom="@dimen/volume_dialog_spacer"
         android:background="@drawable/rounded_volume_background"
         android:elevation="@dimen/volume_dialog_elevation"
         android:orientation="vertical">
@@ -184,6 +181,7 @@
                 android:layout_width="@dimen/volume_dialog_panel_row_width"
                 android:layout_height="@dimen/volume_dialog_panel_row_width"
                 android:layout_margin="@dimen/volume_dialog_panel_row_padding"
+                android:layout_marginBottom="0dp"
                 android:background="@drawable/volume_expand_indicator_bg"
                 android:rotation="90" />
 
@@ -193,6 +191,7 @@
                 android:layout_width="@dimen/volume_dialog_panel_row_width"
                 android:layout_height="@dimen/volume_dialog_panel_row_width"
                 android:layout_margin="@dimen/volume_dialog_panel_row_padding"
+                android:layout_marginBottom="0dp"
                 android:src="@drawable/ic_speaker_bluetooth"
                 android:visibility="gone" />
 
@@ -202,6 +201,7 @@
                 android:layout_width="@dimen/volume_dialog_panel_row_width"
                 android:layout_height="@dimen/volume_dialog_panel_row_width"
                 android:layout_margin="@dimen/volume_dialog_panel_row_padding"
+                android:layout_marginBottom="0dp"
                 android:src="@drawable/ic_settings_16dp"
                 android:contentDescription="@string/accessibility_volume_settings"
                 android:visibility="gone" />
