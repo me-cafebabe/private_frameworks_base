@@ -75,6 +75,23 @@
     <dimen name="fp_dialog_error_padding_bottom_fingerprint_in_display">72dp</dimen>
 
     <!-- Volume dialog -->
+    <dimen name="volume_dialog_panel_transparent_padding_left_right">8dp</dimen>
+    <dimen name="volume_dialog_panel_transparent_padding">20dp</dimen>
+    <dimen name="volume_dialog_panel_width">52dp</dimen>
+    <dimen name="volume_dialog_slider_height">210dp</dimen>
+    <dimen name="volume_dialog_icon_padding">13dp</dimen>
+    <dimen name="volume_dialog_tap_target_size">@dimen/volume_dialog_panel_width</dimen>
+    <dimen name="volume_dialog_spacer">4dp</dimen>
+    <dimen name="volume_dialog_row_icon_size">24dp</dimen>
+    <dimen name="volume_dialog_row_spacer">@dimen/volume_dialog_spacer</dimen>
+    <dimen name="volume_dialog_elevation">9dp</dimen>
+
+    <dimen name="volume_tool_tip_arrow_height">8dp</dimen>
+    <dimen name="volume_tool_tip_arrow_width">10dp</dimen>
+    <dimen name="volume_tool_tip_arrow_margin_container">-2dp</dimen>
+    <dimen name="volume_tool_tip_arrow_margin_start">24dp</dimen>
+    <dimen name="volume_tool_tip_arrow_corner_radius">2dp</dimen>
+
     <dimen name="volume_dialog_panel_radius">26dp</dimen>
     <dimen name="volume_dialog_panel_row_radius">22dp</dimen>
     <dimen name="volume_dialog_panel_row_width">44dp</dimen>

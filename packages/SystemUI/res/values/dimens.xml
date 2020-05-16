@@ -382,24 +382,6 @@
     <!-- The width of the panel that holds the quick settings. -->
     <dimen name="qs_panel_width">@dimen/notification_panel_width</dimen>
 
-    <dimen name="volume_dialog_panel_transparent_padding_left_right">8dp</dimen>
-    <dimen name="volume_dialog_panel_transparent_padding">20dp</dimen>
-    <dimen name="volume_dialog_panel_width">52dp</dimen>
-    <dimen name="volume_dialog_slider_height">210dp</dimen>
-    <dimen name="volume_dialog_icon_padding">14dp</dimen>
-    <dimen name="volume_dialog_tap_target_size">@dimen/volume_dialog_panel_width</dimen>
-    <dimen name="volume_dialog_spacer">4dp</dimen>
-    <dimen name="volume_dialog_button_height">45dp</dimen>
-    <dimen name="volume_dialog_row_icon_size">24dp</dimen>
-    <dimen name="volume_dialog_row_spacer">@dimen/volume_dialog_spacer</dimen>
-    <dimen name="volume_dialog_elevation">9dp</dimen>
-
-    <dimen name="volume_tool_tip_arrow_height">8dp</dimen>
-    <dimen name="volume_tool_tip_arrow_width">10dp</dimen>
-    <dimen name="volume_tool_tip_arrow_margin_container">-2dp</dimen>
-    <dimen name="volume_tool_tip_arrow_margin_start">24dp</dimen>
-    <dimen name="volume_tool_tip_arrow_corner_radius">2dp</dimen>
-
     <!-- Gravity for the notification panel -->
     <integer name="notification_panel_layout_gravity">0x31</integer><!-- center_horizontal|top -->
 
