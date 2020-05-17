@@ -58,6 +58,7 @@ import com.android.internal.annotations.GuardedBy;
 import com.android.internal.util.custom.recorder.InternalAudioRecorder;
 import com.android.settingslib.volume.MediaSessions;
 import com.android.systemui.Dumpable;
+import com.android.systemui.media.QuickMediaPlayer;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
@@ -141,6 +142,8 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
 
     private boolean mIsInternalAudioRecordingSupported;
 
+    private QuickMediaPlayer mMediaPlayer;
+
     @Inject
     public VolumeDialogControllerImpl(Context context) {
         mContext = context.getApplicationContext();
@@ -174,6 +177,10 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
 
     public AudioManager getAudioManager() {
         return mAudio;
+    }
+
+    public QuickMediaPlayer getMediaPlayer() {
+        return mMediaPlayer;
     }
 
     public void dismiss() {
