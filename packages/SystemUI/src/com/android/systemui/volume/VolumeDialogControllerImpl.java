@@ -53,6 +53,8 @@ import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.FrameLayout;
+import android.widget.FrameLayout.LayoutParams;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.util.custom.recorder.InternalAudioRecorder;
@@ -143,6 +145,7 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
     private boolean mIsInternalAudioRecordingSupported;
 
     private QuickMediaPlayer mMediaPlayer;
+    private FrameLayout mMediaPlayerLayout;
 
     @Inject
     public VolumeDialogControllerImpl(Context context) {
@@ -173,6 +176,11 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
                         VolumePolicy.A11Y_MODE_MEDIA_A11Y_VOLUME);
 
         mIsInternalAudioRecordingSupported = InternalAudioRecorder.isSupported(context);
+
+        mMediaPlayerLayout = new FrameLayout(context);
+        setMediaPlayerLayoutParams();
+        mMediaPlayer = new QuickMediaPlayer(context, mMediaPlayerLayout);
+        mMediaPlayerLayout.addView(mMediaPlayer.getView());
     }
 
     public AudioManager getAudioManager() {
@@ -181,6 +189,17 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
 
     public QuickMediaPlayer getMediaPlayer() {
         return mMediaPlayer;
+    }
+
+    protected void setMediaPlayerLayoutParams() {
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,
+                mContext.getResources().getDimensionPixelSize(R.dimen.volume_dialog_media_player_height));
+        lp.setMargins(0, mContext.getResources().getDimensionPixelSize(R.dimen.volume_dialog_spacer), 0, 0);
+        mMediaPlayerLayout.setLayoutParams(lp);
+    }
+
+    protected FrameLayout getMediaPlayerLayout() {
+        return mMediaPlayerLayout;
     }
 
     public void dismiss() {
