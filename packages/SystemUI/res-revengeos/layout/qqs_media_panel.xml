@@ -5,7 +5,7 @@
         <TextView android:id="@+id/app_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true"/>
     </LinearLayout>
     <TextView android:id="@+id/header_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true"/>
-    <TextView android:id="@+id/header_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true"/>
+    <TextView android:id="@+id/header_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:ellipsize="marquee" android:scrollHorizontally="true"  android:maxLines="1"/>
     <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/media_actions" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layoutDirection="ltr">
         <ImageButton android:gravity="center" android:id="@+id/action0" android:visibility="gone" android:layout_width="48dp" android:layout_height="48dp" style="@android:style/Widget.Material.Button.Borderless.Small"/>
         <ImageButton android:gravity="center" android:id="@+id/action1" android:visibility="gone" android:layout_width="48dp" android:layout_height="48dp" style="@android:style/Widget.Material.Button.Borderless.Small"/>

@@ -140,6 +140,7 @@ public class MediaControlPanel implements MediaListener {
         TextView textView3 = (TextView) mMediaNotifView.findViewById(R.id.header_text);
         textView3.setText(mMetadata.getString("android.media.metadata.TITLE"));
         textView3.setTextColor(mForegroundColor);
+        textView3.setSelected(true);
         mMediaManager.removeCallback(this);
         mMediaManager.addCallback(this);
     }
