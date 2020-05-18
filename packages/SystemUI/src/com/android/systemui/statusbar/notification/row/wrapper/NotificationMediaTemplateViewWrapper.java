@@ -297,6 +297,8 @@ public class NotificationMediaTemplateViewWrapper extends NotificationTemplateVi
             ((MediaNotificationView) mView).removeVisibilityListener(mVisibilityListener);
             mView.removeOnAttachStateChangeListener(mAttachStateListener);
         }
+        final VolumeDialogControllerImpl mController = (VolumeDialogControllerImpl) Dependency.get(VolumeDialogController.class);
+        mController.getMediaPlayer().setPlaybackActive(false);
     }
 
     private boolean canSeekMedia(@Nullable PlaybackState state) {
