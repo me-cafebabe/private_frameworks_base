@@ -178,6 +178,8 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
         mIsInternalAudioRecordingSupported = InternalAudioRecorder.isSupported(context);
 
         mMediaPlayerLayout = new FrameLayout(context);
+        mMediaPlayerLayout.setClipChildren(false);
+        mMediaPlayerLayout.setClipToPadding(false);
         mMediaPlayer = new QuickMediaPlayer(context, mMediaPlayerLayout);
         setMediaPlayerLayoutParams();
     }
