@@ -27,7 +27,7 @@ import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
-import com.android.systemui.qs.tiles.AlwaysOnDisplayTile;
+import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
@@ -83,10 +83,10 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
-    private final Provider<AlwaysOnDisplayTile> mAlwaysOnDisplayTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<WeatherTile> mWeatherTileProvider;
     private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
+    private final Provider<AODTile> mAODTileProvider;
 
     private QSTileHost mHost;
 
@@ -112,10 +112,10 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
-            Provider<AlwaysOnDisplayTile> alwaysOnDisplayTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<WeatherTile> weatherTileProvider,
-            Provider<ScreenRecordTile> screenRecordTileProvider) {
+            Provider<ScreenRecordTile> screenRecordTileProvider,
+            Provider<AODTile> aodTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -137,10 +137,10 @@ public class QSFactoryImpl implements QSFactory {
         mUiModeNightTileProvider = uiModeNightTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
-        mAlwaysOnDisplayTileProvider = alwaysOnDisplayTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mWeatherTileProvider = weatherTileProvider;
         mScreenRecordTileProvider = screenRecordTileProvider;
+        mAODTileProvider = aodTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -198,14 +198,14 @@ public class QSFactoryImpl implements QSFactory {
                 return mLiveDisplayTileProvider.get();
             case "caffeine":
                 return mCaffeineTileProvider.get();
-            case "always_on_display":
-                return mAlwaysOnDisplayTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
             case "weather":
                 return mWeatherTileProvider.get();
             case "screenrecord":
                 return mScreenRecordTileProvider.get();
+            case "aod":
+                return mAODTileProvider.get();
         }
 
         // Intent tiles.
