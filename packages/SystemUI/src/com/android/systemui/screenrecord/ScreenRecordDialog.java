@@ -25,8 +25,13 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.SurfaceControl;
+import android.view.SurfaceSession;
 import android.view.ViewGroup;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -106,6 +111,33 @@ public class ScreenRecordDialog extends Activity {
             mAudioSwitch.setChecked(true);
         });
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        View rootView = getWindow().getDecorView();
+        rootView.getViewTreeObserver().addOnDrawListener(new ViewTreeObserver.OnDrawListener() {
+            @Override
+            public void onDraw() {
+                final SurfaceSession surfaceSession = new SurfaceSession();
+                SurfaceControl surfaceControl = rootView.getViewRootImpl().getSurfaceControl();
+                final SurfaceControl effectLayer = new SurfaceControl.Builder(surfaceSession)
+                        .setParent(surfaceControl).setEffectLayer()
+                        .setName("Effect layer")
+                        .build();
+                SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
+                //transaction.setShadowRadius(surfaceControl, 100);
+                transaction.setLayer(effectLayer, Integer.MAX_VALUE);
+                transaction.setColor(effectLayer, new float[]{0f, 215f, 0f});
+                transaction.show(effectLayer);
+                transaction.apply();
+                Log.d(TAG, "surface size is " + effectLayer.getWidth() + "x" + effectLayer.getHeight());
+                rootView.post(() -> rootView.getViewTreeObserver().removeOnDrawListener(this));
+            }
+        });
+    }
+
+
 
     private void requestScreenCapture() {
         Context userContext = mCurrentUserContextTracker.getCurrentUserContext();
