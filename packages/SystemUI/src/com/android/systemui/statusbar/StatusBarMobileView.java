@@ -228,9 +228,8 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
     @Override
     public void setStaticDrawableColor(int color) {
         ColorStateList list = ColorStateList.valueOf(color);
-        float intensity = color == Color.WHITE ? 0 : 1;
-        mMobileDrawable.setDarkIntensity(intensity);
 
+        mMobileDrawable.setTintList(list);
         mIn.setImageTintList(list);
         mOut.setImageTintList(list);
         mMobileType.setImageTintList(list);
