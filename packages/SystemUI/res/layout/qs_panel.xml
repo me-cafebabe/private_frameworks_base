@@ -34,6 +34,8 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:layout_marginBottom="10dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
             android:focusable="true"
             android:accessibilityTraversalBefore="@android:id/edit">
             <include layout="@layout/qs_footer_impl" />
