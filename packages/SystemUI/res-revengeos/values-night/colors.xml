@@ -15,6 +15,6 @@
      limitations under the License.
 -->
 <resources>
-    <color name="qs_blur_scrim">#c8000000</color>
+    <color name="qs_blur_scrim">#af000000</color>
     <color name="qs_translucent_text_primary">#c5ffffff</color>
 </resources>
