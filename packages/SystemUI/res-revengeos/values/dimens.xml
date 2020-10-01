@@ -39,6 +39,9 @@
     <!-- Quick QS brightness thiccbar height -->
     <dimen name="qs_brightness_thiccbar_height">22dp</dimen>
 
+    <!-- QS panel brightness side margin -->
+    <dimen name="qs_brightness_side_margin">10dp</dimen>
+
     <!-- Volume dialog -->
     <dimen name="volume_dialog_panel_transparent_padding_left_right">8dp</dimen>
     <dimen name="volume_dialog_panel_transparent_padding">20dp</dimen>
