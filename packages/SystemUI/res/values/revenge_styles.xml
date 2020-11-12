@@ -25,4 +25,11 @@
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+
+    <!-- Reticker -->
+     <style name="TextAppearance.Notifications.reTicker" parent="@*android:style/TextAppearance.StatusBar.Icon">
+         <item name="android:textSize">14dp</item>
+         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+         <item name="android:textColor">?android:attr/textColorPrimary</item>
+     </style>
 </resources>
