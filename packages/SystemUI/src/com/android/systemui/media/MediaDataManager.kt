@@ -74,6 +74,7 @@ private const val DEBUG = true
 private const val DEFAULT_LUMINOSITY = 0.25f
 private const val LUMINOSITY_THRESHOLD = 0.05f
 private const val SATURATION_MULTIPLIER = 0.8f
+const val DEFAULT_COLOR = Color.DKGRAY
 
 private val LOADING = MediaData(-1, false, 0, 0, null, null, null, null, null,
         emptyList(), emptyList(), "INVALID", null, null, null, true, null)
