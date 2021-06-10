@@ -26,6 +26,7 @@ import static android.os.BatteryManager.EXTRA_MAX_CHARGING_CURRENT;
 import static android.os.BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE;
 import static android.os.BatteryManager.EXTRA_TEMPERATURE;
 import static android.os.BatteryManager.EXTRA_PLUGGED;
+import static android.os.BatteryManager.EXTRA_PRESENT;
 import static android.os.BatteryManager.EXTRA_STATUS;
 
 //dev-harsh1998 Port vooc charging status to Android R
@@ -64,9 +65,11 @@ public class BatteryStatus {
     // dev-harsh1998 port vooc charging to Android R fuel gauge
     public final boolean voocChargeStatus;
 
+    public final boolean present;
+
     public BatteryStatus(int status, int level, int plugged, int health,
             int maxChargingCurrent, int maxChargingVoltage,
-            int maxChargingWattage, int temperature, boolean voocChargeStatus) {
+            int maxChargingWattage, boolean present, int temperature, boolean voocChargeStatus) {
         this.status = status;
         this.level = level;
         this.plugged = plugged;
@@ -76,6 +79,7 @@ public class BatteryStatus {
         this.maxChargingWattage = maxChargingWattage;
         this.temperature = temperature;
         this.voocChargeStatus = voocChargeStatus;
+        this.present = present;
     }
 
     public BatteryStatus(Intent batteryChangedIntent) {
@@ -85,6 +89,8 @@ public class BatteryStatus {
         health = batteryChangedIntent.getIntExtra(EXTRA_HEALTH, BATTERY_HEALTH_UNKNOWN);
         temperature = batteryChangedIntent.getIntExtra(EXTRA_TEMPERATURE, -1);
         voocChargeStatus = batteryChangedIntent.getBooleanExtra(EXTRA_VOOC_CHARGER, false);
+
+        present = batteryChangedIntent.getBooleanExtra(EXTRA_PRESENT, true);
 
         final int maxChargingMicroAmp = batteryChangedIntent.getIntExtra(EXTRA_MAX_CHARGING_CURRENT,
                 -1);

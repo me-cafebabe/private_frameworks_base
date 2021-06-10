@@ -16,6 +16,7 @@
 
 package com.android.systemui.media;
 
+import static android.app.Notification.safeCharSequence;
 import static android.provider.Settings.ACTION_MEDIA_CONTROLS_SETTINGS;
 
 import android.app.PendingIntent;
@@ -266,9 +267,14 @@ public class MediaControlPanel {
         iconDrawable.setTint(mForegroundColor);
         appIcon.setImageDrawable(iconDrawable);
 
+        // App title
+        TextView appName = mViewHolder.getAppName();
+        appName.setText(data.getApp());
+        appName.setTextColor(mForegroundColor);
+
         // Song name
         TextView titleText = mViewHolder.getTitleText();
-        titleText.setText(data.getSong());
+        titleText.setText(safeCharSequence(data.getSong()));
         titleText.setTextColor(mForegroundColor);
 
         // Artist name
