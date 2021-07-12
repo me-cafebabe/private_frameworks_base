@@ -275,6 +275,10 @@ public class MediaControlPanel {
         TextView artistText = mViewHolder.getArtistText();
         artistText.setText(safeCharSequence(data.getArtist()));
 
+        // Text Tinting
+        titleText.setTextColor(mForegroundColor);
+        artistText.setTextColor(mForegroundColor);
+
         mViewHolder.getMediaText().setTextColor(mForegroundColor);
         mViewHolder.getRemoveText().setTextColor(mForegroundColor);
         mViewHolder.getCancelText().setTextColor(mForegroundColor);
