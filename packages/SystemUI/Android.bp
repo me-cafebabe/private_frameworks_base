@@ -75,7 +75,6 @@ android_library {
         "RevengeUI-lib",
         "overscroll-decor",
         "WeatherIcons",
-        "faceunlock_framework",
     ],
     manifest: "AndroidManifest.xml",
 
