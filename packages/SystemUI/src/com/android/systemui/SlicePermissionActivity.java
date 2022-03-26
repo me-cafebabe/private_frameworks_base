@@ -103,7 +103,7 @@ public class SlicePermissionActivity extends Activity implements OnClickListener
     }
 
     private void verifyCallingPkg() {
-        final String providerPkg = getIntent().getStringExtra(SliceProvider.EXTRA_PROVIDER_PKG);
+        final String providerPkg = getIntent().getStringExtra("provider_pkg");
         if (providerPkg == null || mProviderPkg.equals(providerPkg)) return;
         final String callingPkg = getCallingPkg();
         EventLog.writeEvent(0x534e4554, "159145361", getUid(callingPkg));
